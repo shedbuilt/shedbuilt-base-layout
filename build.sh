@@ -17,6 +17,3 @@ ln -sv /proc/self/mounts ${SHED_FAKEROOT}/etc/mtab
 install -v -m644 ${SHED_CONTRIBDIR}/passwd ${SHED_FAKEROOT}/etc/passwd
 install -v -m644 ${SHED_CONTRIBDIR}/group ${SHED_FAKEROOT}/etc/group
 touch ${SHED_FAKEROOT}/var/log/{btmp,lastlog,faillog,wtmp}
-chgrp -v utmp ${SHED_FAKEROOT}/var/log/lastlog
-chmod -v 664  ${SHED_FAKEROOT}/var/log/lastlog
-chmod -v 600  ${SHED_FAKEROOT}/var/log/btmp
