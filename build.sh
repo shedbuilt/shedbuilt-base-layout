@@ -56,6 +56,6 @@ case "$SHED_BUILDMODE" in
         # same the same release series. This allows this package to be installed
         # without bash and its dependencies being available, which running the
         # post-install would require.
-        chgrp -v utmp /var/log/lastlog
+        chgrp -v utmp "${SHED_FAKEROOT}/var/log/lastlog"
         ;;
 esac
