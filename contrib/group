@@ -29,4 +29,4 @@ systemd-timesync:x:78:
 systemd-coredump:x:79:
 users:x:999:
 wheel:x:1001:
-nogroup:x:65534:
+nobody:x:65534:
