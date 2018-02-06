@@ -40,20 +40,18 @@ case "$SHED_BUILDMODE" in
         ln -sv /tools/bin/{env,install,perl} "${SHED_FAKEROOT}/usr/bin"
         ln -sv /tools/lib/libgcc_s.so{,.1} "${SHED_FAKEROOT}/usr/lib"
         ln -sv /tools/lib/libstdc++.{a,so{,.6}} "${SHED_FAKEROOT}/usr/lib"
-        sed 's/tools/usr/' /tools/lib/libstdc++.la > "${SHED_FAKEROOT}/usr/lib/libstdc++.la"
-        for lib in blkid lzma mount uuid
+        for SHDPKG_LIB in blkid lzma mount uuid
         do
-            ln -sv /tools/lib/lib$lib.so* "${SHED_FAKEROOT}/usr/lib"
-            sed 's/tools/usr/' /tools/lib/lib${lib}.la > "${SHED_FAKEROOT}/usr/lib/lib${lib}.la"
+            ln -sv /tools/lib/lib${SHDPKG_LIB}.so* "${SHED_FAKEROOT}/usr/lib"
         done
         ln -svf /tools/include/blkid "${SHED_FAKEROOT}/usr/include"
         ln -svf /tools/include/libmount "${SHED_FAKEROOT}/usr/include"
         ln -svf /tools/include/uuid "${SHED_FAKEROOT}/usr/include"
         install -vdm755 "${SHED_FAKEROOT}/usr/lib/pkgconfig"
-        for pc in blkid mount uuid
+        for SHDPKG_LIB in blkid mount uuid
         do
-            sed 's@tools@usr@g' /tools/lib/pkgconfig/${pc}.pc \
-                > "${SHED_FAKEROOT}/usr/lib/pkgconfig/${pc}.pc"
+            sed 's@tools@usr@g' /tools/lib/pkgconfig/${SHDPKG_LIB}.pc \
+                > "${SHED_FAKEROOT}/usr/lib/pkgconfig/${SHDPKG_LIB}.pc"
         done
         ln -sv bash "${SHED_FAKEROOT}/bin/sh"
         ;;
