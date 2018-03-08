@@ -57,9 +57,9 @@ case "$SHED_BUILDMODE" in
         ;;
     release)
         # NOTE: In 'bootstrap' this is done as a post-install step because we need
-        # to install /etc/group for 'utmp' to be found. In 'release' we do this
-        # during the build instead because it will only be built from system from
-        # same the same release series. This allows this package to be installed
+        # to install /etc/group for 'utmp' and to be found. In 'release' we do
+        # this during the build instead because it will only be built from system
+        # from same the same release series. This allows this package to be installed
         # without bash and its dependencies being available, which running the
         # post-install would require.
         chgrp -v utmp "${SHED_FAKEROOT}/var/log/lastlog"
