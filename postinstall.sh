@@ -9,7 +9,8 @@ fi
 if [ "$SHED_BUILDMODE" == 'bootstrap' ]; then
     chgrp -v utmp /var/log/lastlog
     chgrp -v -R shedmake /var/shedmake
-    chmod g+s shedmake
+    chmod -v -R g+s /var/shedmake
+    chmod -v 775 /var/shedmake/repos/local
 fi
 # HACK: Clean up duplicate symlink that results from installing over an existing system
 if [ -L /run/run ]; then
