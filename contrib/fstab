@@ -1,0 +1,9 @@
+# Begin /etc/fstab
+
+# file system  mount-point  type     options             dump  fsck
+#                                                              order
+
+/dev/mmcblk0p1 / ext4 defaults,noatime,commit=600,errors=remount-ro 0 1
+#/var/swap swap swap pri=1 0 0
+
+# End /etc/fstab
